@@ -12,16 +12,16 @@
 .env
 
 <code>
-DB_MASTER_HOST=database_address
-DB_MASTER_USER=database_user_name
-DB_MASTER_PASSWORD=database_user
-DB_MASTER_PORT=database_port
-DB_MASTER_DATABASE=database
-TARGET_FOLDER_PATH=schema_generating_folder
-RESULT_FILE_PATH=generate_result_file_path
-POSTFIX_SCHEMA_NAME="Schema"
-POSTFIX_RETURN_SCHEMA_NAME="Select"
-PREFIX_RETURN_SCHEMA_NAME="ReturnSchema"
-PREFIX_INPUT_SCHEMA_NAME="Input"
-POSTFIX_INPUT_SCHEMA_NAME="Schema"
+DB_MASTER_HOST=database_address (디비주소) <br>
+DB_MASTER_USER=database_user_name (유저아이디) <br>
+DB_MASTER_PASSWORD=database_user (패스워드) <br>
+DB_MASTER_PORT=database_port (포트) <br>
+DB_MASTER_DATABASE=database (디비) <br>
+TARGET_FOLDER_PATH=schema_generating_folder <br>
+RESULT_FILE_PATH=generate_result_file_path <br>
+POSTFIX_SCHEMA_NAME="Schema" <br>
+POSTFIX_RETURN_SCHEMA_NAME="Select" <br>
+PREFIX_RETURN_SCHEMA_NAME="ReturnSchema" <br>
+PREFIX_INPUT_SCHEMA_NAME="Input" <br>
+POSTFIX_INPUT_SCHEMA_NAME="Schema" <br>
 </code>
