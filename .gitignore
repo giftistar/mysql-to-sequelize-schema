@@ -1,0 +1,5 @@
+*.env.*
+result/*
+migration.*.*
+node_modules/
+.env
