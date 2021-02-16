@@ -11,7 +11,7 @@
 
 .env
 
-<code>
+
 DB_MASTER_HOST=database_address (디비주소) <br>
 DB_MASTER_USER=database_user_name (유저아이디) <br>
 DB_MASTER_PASSWORD=database_user (패스워드) <br>
@@ -24,4 +24,4 @@ POSTFIX_RETURN_SCHEMA_NAME="Select" <br>
 PREFIX_RETURN_SCHEMA_NAME="ReturnSchema" <br>
 PREFIX_INPUT_SCHEMA_NAME="Input" <br>
 POSTFIX_INPUT_SCHEMA_NAME="Schema" <br>
-</code>
+
