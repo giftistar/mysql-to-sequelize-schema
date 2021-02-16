@@ -1,0 +1,1 @@
+mysql-to-sequelize-schema
