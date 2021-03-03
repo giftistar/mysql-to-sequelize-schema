@@ -324,9 +324,9 @@ async function create(table_name) {
       column_decorator_parts.default_value = `, defaultValue : ${default_value}`;
     }
 
-    // if (desc[i].Comment) {
-    //     column_decorator_parts.comment = `, comment : "${desc[i].Comment}"`;
-    // }
+    if (desc[i].Comment) {
+        column_decorator_parts.comment = `, comment : "${desc[i].Comment}"`;
+    }
 
     type = `@Column({type: DataType.${type_split}${column_decorator_parts.type_length} ${column_decorator_parts.default_value} ${column_decorator_parts.comment}})`.trim();
 
