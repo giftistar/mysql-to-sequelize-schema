@@ -357,7 +357,7 @@ async function create(table_name) {
     }
 
     // text
-    if (type_split == 'BIGINT' || type_split == 'INTEGER' || type_split == 'FLOAT' || type_split == 'DECIMAL') {
+    if (type_split == 'BIGINT' || type_split == 'INTEGER' || type_split == 'FLOAT' || type_split == 'DECIMAL' || type_split == 'SMALLINT') {
       text_type = 'number';
     } else if (type_split == 'TINYINT') {
       if (type_length == 4 && desc[i].Field.includes('_status')) {
@@ -385,6 +385,8 @@ async function create(table_name) {
           text_type = 'CU_AI_STATUS';
         } else if (desc[i].Field == 'event_coupon_status') {
           text_type = 'EVENT_COUPON_STATUS';
+        } else {
+          text_type = 'number';
         }
       } else {
         text_type = type_length == 1 ? 'boolean' : 'number';
