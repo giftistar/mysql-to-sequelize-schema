@@ -9,7 +9,14 @@ pool.query = util.promisify(pool.query);
 pool.getConnection = util.promisify(pool.getConnection);
 
 async function start() {
-  const exclude_table_names = ['order_sequence'];
+  const exclude_table_names = [
+    'order_sequence',
+    'view_appsflyer_day_history_pivot',
+    'v_coupon',
+    'v_menu_master',
+    'v_order_coupon',
+    'v_order_coupon_group_by_user_first_last'
+  ];
   try {
     // 테이블 네임 추출해주기
     let table_name = [];
@@ -20,6 +27,7 @@ async function start() {
     for (let item in result) {
       if (
         (result[item][`Tables_in_${config.database}`] as string).startsWith('_') ||
+        (result[item][`Tables_in_${config.database}`] as string).startsWith('view_') ||
         exclude_table_names.includes(result[item][`Tables_in_${config.database}`] as string)
       ) {
         continue;
@@ -325,12 +333,13 @@ async function create(table_name) {
     }
 
     if (desc[i].Comment) {
-        column_decorator_parts.comment = `, comment : "${desc[i].Comment}"`;
+      column_decorator_parts.comment = `, comment : "${desc[i].Comment}"`;
     }
 
-    type = `@Column({type: DataType.${type_split}${column_decorator_parts.type_length} ${column_decorator_parts.default_value} ${column_decorator_parts.comment}})`.trim();
+    type =
+      `@Column({type: DataType.${type_split}${column_decorator_parts.type_length} ${column_decorator_parts.default_value} ${column_decorator_parts.comment}})`.trim();
 
-    if ((type_split == 'TINYINT' && type_length > 1) || type_split == 'INTERGER') {
+    if ((type_split == 'TINYINT' && type_length > 1) || type_split == 'INTEGER') {
       type_func = '_ => Int ,';
     }
     if (type_split == 'BIGINT') {
